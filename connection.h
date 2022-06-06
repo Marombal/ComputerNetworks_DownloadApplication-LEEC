@@ -6,29 +6,29 @@
 /**
  * @brief Initiate the connection between client and server (by creating a connection socket)
  * 
- * @param ip  
- * @param port 
- * @param socketfd 
- * @return ERROR (0) on error; OK (1) on sucess  
+ * @param ip pointer to the IP
+ * @param port port number
+ * @param socketfd pointer to socket file descriptor
+ * @return ERROR (-1) on error; OK (1) on sucess  
  */
 int client_init(char *ip, int port, int *socketfd);
 
 /**
  * @brief not yet
  * 
- * @param socketfd 
+ * @param socketfd pointer to socket file descriptor
  * @param command 
- * @return ERROR (0) on error; OK (1) on sucess  
+ * @return ERROR (-1) on error; OK (1) on sucess  
  */
 int clientCommand(int socketfd, char * command);
 
 /**
  * @brief not yet
  * 
- * @param socketfd 
- * @param ip 
- * @param port 
- * @return ERROR (0) on error; OK (1) on sucess  
+ * @param socketfd pointer to socket file descriptor
+ * @param ip pointer to the IP
+ * @param port port number
+ * @return ERROR (-1) on error; OK (1) on sucess  
  */
 int pasvMode(int socketfd, char *ip, int *port);
 
@@ -36,19 +36,19 @@ int pasvMode(int socketfd, char *ip, int *port);
 /**
  * @brief not yet
  * 
- * @param socketfd 
+ * @param socketfd pointer to socket file descriptor
  * @param rd 
- * @param size 
- * @return ERROR (0) on error; OK (1) on sucess  
+ * @param size size of rd
+ * @return ERROR (-1) on error; OK (1) on sucess  
  */
 int readResponse(int socketfd, char* rd, size_t size);
 
 /**
  * @brief not yet
  * 
- * @param socketfd 
+ * @param socketfd pointer to socket file descriptor
  * @param filename 
- * @return ERROR (0) on error; OK (1) on sucess 
+ * @return ERROR (-1) on error; OK (1) on sucess 
  */
 int writeFile(int socketfd, char* filename);
 

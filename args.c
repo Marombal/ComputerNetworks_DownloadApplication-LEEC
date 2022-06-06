@@ -1,6 +1,12 @@
 #include "args.h"
 
 int parseArgs(char *url, connectionArgs *args){
+    if(!args){
+        printf("Error parseArgs() invalid parameters\n");
+        return ERROR;
+    }
+
+
     char ftp_[] = "ftp://"; // "parte inicial da string"
     for(int i = 0; i < 6; i++){
         if(url[i] != ftp_[i]){
@@ -8,6 +14,7 @@ int parseArgs(char *url, connectionArgs *args){
             return ERROR;
         }
     }
+    
     int index = 6;
     int length = strlen(url);
     char curr_char;
@@ -82,7 +89,10 @@ int parseArgs(char *url, connectionArgs *args){
 }
 
 int getIp(char *host, connectionArgs *args){
-    //returns -1 if error, 0 if success
+    if(!args){
+        printf("Error getIp() invalid parameters\n");
+        return ERROR;
+    }
     struct hostent *h;
     
     if((h = gethostbyname(host)) == NULL){
@@ -97,11 +107,13 @@ int getIp(char *host, connectionArgs *args){
 }
 
 int getFileName(connectionArgs *args){
-    //returns 0 if success
+    if(!args){
+        printf("Error getFileName() invalid parameters\n");
+        return ERROR;
+    }
     char fullpath[256];
-
     strcpy(fullpath, args->url_path);
-    
+
     char* aux = strtok(fullpath, "/");
 
     while(aux != NULL){
@@ -109,7 +121,7 @@ int getFileName(connectionArgs *args){
         aux = strtok(NULL, "/");
     }
 
-    return 0;
+    return 0; //returns 0 if success
 }
 
 void printArgs(connectionArgs *args){

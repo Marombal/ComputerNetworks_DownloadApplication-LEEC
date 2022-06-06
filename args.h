@@ -35,11 +35,11 @@ typedef enum {
 } States;
 
 /**
- * @brief Not Yet
+ * @brief This function processes the URL, separating it into different elements and storing them in the respective places in the structure (connectionArgs *args)
  * 
- * @param url 
- * @param args 
- * @return int 
+ * @param url pointer to url string
+ * @param args pointer to the struct where the information will be stored
+ * @return ERROR (-1) on error; OK (1) on sucess 
  */
 int parseArgs(char *url, connectionArgs *args);
 
@@ -47,17 +47,17 @@ int parseArgs(char *url, connectionArgs *args);
 /**
  * @brief Get the Ip object
  * 
- * @param host 
- * @param args 
- * @return int 
+ * @param host pointer to the string with the host from where IP will be search
+ * @param args pointer to the struct with the information
+ * @return ERROR (-1) on error; 0 on sucess  
  */
 int getIp(char *host, connectionArgs *args);
 
 /**
  * @brief Get the File Name object
  * 
- * @param args 
- * @return int 
+ * @param args pointer to the struct with the information
+ * @return ERROR (-1) on error; 0 on sucess  
  */
 int getFileName(connectionArgs *args);
 
